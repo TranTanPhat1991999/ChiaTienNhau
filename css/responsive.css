@@ -1,0 +1,600 @@
+/* ChiaCheck - Responsive Design */
+
+/* Mobile First Breakpoints */
+/* xs: 320px+ (default - mobile first) */
+/* sm: 640px+ (large mobile) */
+/* md: 768px+ (tablet) */
+/* lg: 1024px+ (desktop) */
+/* xl: 1280px+ (large desktop) */
+/* 2xl: 1536px+ (extra large) */
+
+/* Base Mobile Styles (320px+) */
+@media (max-width: 639px) {
+    /* Header Adjustments */
+    .header-content {
+        padding: 0 var(--space-3);
+    }
+    
+    .app-title {
+        font-size: var(--font-size-xl);
+    }
+    
+    .app-subtitle {
+        display: none;
+    }
+    
+    .mobile-only {
+        display: block;
+    }
+    
+    .desktop-only {
+        display: none;
+    }
+    
+    /* Main Layout */
+    .main-content {
+        flex-direction: column;
+    }
+    
+    /* Sidebar - Mobile */
+    .sidebar {
+        position: fixed;
+        top: var(--header-height);
+        left: -100%;
+        width: 280px;
+        height: calc(100vh - var(--header-height));
+        background: var(--bg-primary);
+        border-right: 1px solid var(--border-color);
+        box-shadow: var(--shadow-xl);
+        z-index: 200;
+        transition: left var(--transition-normal);
+        overflow-y: auto;
+    }
+    
+    .sidebar.open {
+        left: 0;
+    }
+    
+    /* Mobile Overlay */
+    .mobile-overlay {
+        position: fixed;
+        top: var(--header-height);
+        left: 0;
+        width: 100vw;
+        height: calc(100vh - var(--header-height));
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(4px);
+        z-index: 150;
+        display: none;
+    }
+    
+    .mobile-overlay.show {
+        display: block;
+    }
+    
+    /* Content Area - Mobile */
+    .content-area {
+        padding: var(--space-4);
+        width: 100%;
+        max-height: calc(100vh - var(--header-height));
+    }
+    
+    /* Form Grid - Mobile */
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-3);
+        padding: var(--space-4);
+    }
+    
+    .form-group.full-width {
+        grid-column: 1;
+    }
+    
+    /* Summary Cards - Mobile */
+    .summary-cards {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-3);
+        padding: var(--space-4);
+    }
+    
+    /* Members List - Mobile */
+    .members-list {
+        padding: var(--space-4);
+    }
+    
+    .member-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-3);
+    }
+    
+    .member-info {
+        width: 100%;
+    }
+    
+    .member-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+    
+    /* Modal - Mobile */
+    .modal-content {
+        margin: var(--space-4);
+        max-width: calc(100vw - 2rem);
+        max-height: calc(100vh - 2rem);
+    }
+    
+    .modal-body {
+        padding: var(--space-4);
+    }
+    
+    /* Toast - Mobile */
+    .toast-container {
+        top: var(--space-2);
+        right: var(--space-2);
+        left: var(--space-2);
+    }
+    
+    .toast {
+        min-width: auto;
+        width: 100%;
+    }
+    
+    /* Section Padding */
+    .section-header {
+        padding: var(--space-4);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-3);
+    }
+    
+    /* Progress Indicator - Mobile */
+    .progress-indicator {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .progress-bar {
+        width: 100px;
+    }
+    
+    /* Input Groups - Mobile */
+    .input-group {
+        flex-direction: column;
+        gap: var(--space-2);
+    }
+    
+    .input-group .form-input {
+        order: 1;
+    }
+    
+    .input-group button {
+        order: 2;
+        align-self: flex-start;
+    }
+    
+    /* Templates - Mobile */
+    .templates-list {
+        flex-direction: column;
+    }
+    
+    .template-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    /* Items management - Mobile */
+    .item-inputs {
+        grid-template-columns: 1fr;
+        gap: var(--space-2);
+    }
+    
+    .add-item-btn {
+        order: 3;
+    }
+    
+    /* Banking forms - Mobile */
+    .banking-inputs {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Member calculations - Mobile */
+    .member-calculations {
+        grid-template-columns: 1fr;
+        padding: var(--space-4);
+    }
+    
+    /* Share options - Mobile */
+    .share-options {
+        flex-direction: column;
+    }
+    
+    .share-options button {
+        width: 100%;
+    }
+}
+
+/* Large Mobile (640px+) */
+@media (min-width: 640px) and (max-width: 767px) {
+    .summary-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .member-card {
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .member-info {
+        width: auto;
+    }
+    
+    .member-actions {
+        width: auto;
+    }
+    
+    .input-group {
+        flex-direction: row;
+    }
+    
+    .input-group .form-input {
+        order: 0;
+    }
+    
+    .input-group button {
+        order: 0;
+        align-self: stretch;
+    }
+}
+
+/* Tablet (768px+) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .mobile-only {
+        display: none;
+    }
+    
+    .desktop-only {
+        display: block;
+    }
+    
+    /* Sidebar - Tablet */
+    .sidebar {
+        position: sticky;
+        top: var(--header-height);
+        left: 0;
+        width: 240px;
+        height: calc(100vh - var(--header-height));
+        transform: none;
+        box-shadow: none;
+    }
+    
+    .main-content {
+        flex-direction: row;
+    }
+    
+    /* Content adjustments */
+    .content-area {
+        padding: var(--space-5);
+    }
+    
+    .form-grid {
+        padding: var(--space-5);
+    }
+    
+    .summary-cards {
+        grid-template-columns: repeat(2, 1fr);
+        padding: var(--space-5);
+    }
+    
+    .section-header {
+        padding: var(--space-5);
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .progress-indicator {
+        width: auto;
+    }
+    
+    .progress-bar {
+        width: 120px;
+    }
+    
+    /* Items management - Tablet */
+    .item-inputs {
+        grid-template-columns: 2fr 1fr auto;
+    }
+    
+    /* Banking forms - Tablet */
+    .banking-inputs {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .banking-inputs .input-group:first-child {
+        grid-column: 1 / -1;
+    }
+    
+    /* Member calculations - Tablet */
+    .member-calculations {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+
+/* Desktop (1024px+) */
+@media (min-width: 1024px) {
+    .sidebar {
+        width: var(--sidebar-width);
+    }
+    
+    .summary-cards {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .content-area {
+        padding: var(--space-6);
+    }
+    
+    .form-grid {
+        padding: var(--space-6);
+    }
+    
+    .section-header {
+        padding: var(--space-6);
+    }
+    
+    /* Member cards can be more compact */
+    .members-list {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+    
+    /* Analytics grid */
+    .analytics-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-6);
+    }
+    
+    .chart-container {
+        min-height: 300px;
+    }
+    
+    /* Banking forms - Desktop */
+    .banking-inputs {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    
+    .banking-inputs .input-group:first-child {
+        grid-column: 1;
+    }
+}
+
+/* Large Desktop (1280px+) */
+@media (min-width: 1280px) {
+    .content-area {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .members-list {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    }
+    
+    .modal-content {
+        max-width: 800px;
+    }
+    
+    .analytics-grid {
+        grid-template-columns: 2fr 1fr;
+    }
+}
+
+/* Extra Large Desktop (1536px+) */
+@media (min-width: 1536px) {
+    .main-content {
+        max-width: 1400px;
+    }
+    
+    .content-area {
+        max-width: none;
+    }
+    
+    .summary-cards {
+        grid-template-columns: repeat(6, 1fr);
+    }
+    
+    .members-list {
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    }
+}
+
+/* Landscape Mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+    .header {
+        position: relative;
+    }
+    
+    .sidebar {
+        height: calc(100vh - var(--header-height));
+        position: fixed;
+    }
+    
+    .content-area {
+        max-height: calc(100vh - var(--header-height));
+        padding: var(--space-3);
+    }
+    
+    .section-header {
+        padding: var(--space-3);
+    }
+    
+    .form-grid {
+        padding: var(--space-3);
+    }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) and (pointer: coarse) {
+    /* Larger touch targets */
+    .btn-primary,
+    .btn-secondary,
+    .icon-btn,
+    .nav-btn {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    .form-input {
+        min-height: 44px;
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+    
+    .member-actions button {
+        min-width: 44px;
+        min-height: 44px;
+    }
+    
+    .suggestion-item {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+    }
+    
+    /* Remove hover effects on touch devices */
+    .nav-btn:hover,
+    .btn-primary:hover,
+    .btn-secondary:hover,
+    .icon-btn:hover,
+    .member-card:hover,
+    .summary-card:hover,
+    .template-btn:hover,
+    .suggestion-item:hover {
+        transform: none;
+        box-shadow: none;
+    }
+    
+    /* Add active states for touch feedback */
+    .nav-btn:active,
+    .btn-primary:active,
+    .btn-secondary:active,
+    .icon-btn:active {
+        transform: scale(0.98);
+    }
+}
+
+/* High DPI Displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .loading-logo,
+    .logo {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+}
+
+/* Reduced Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+    .sidebar {
+        transition: none;
+    }
+    
+    .mobile-overlay {
+        transition: none;
+    }
+    
+    .modal-content {
+        animation: none;
+    }
+    
+    .toast {
+        animation: none;
+    }
+    
+    .loading-spinner {
+        animation: none;
+        border: 3px solid var(--primary-color);
+    }
+    
+    .loading-logo {
+        animation: none;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .header,
+    .sidebar,
+    .modal,
+    .toast-container,
+    .loading-screen,
+    .mobile-overlay {
+        display: none !important;
+    }
+    
+    .main-content {
+        flex-direction: column;
+        max-width: none;
+    }
+    
+    .content-area {
+        padding: 0;
+        max-height: none;
+        overflow: visible;
+    }
+    
+    .section {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid var(--border-color);
+        margin-bottom: var(--space-4);
+    }
+    
+    .section-header {
+        background: var(--bg-secondary);
+        border-bottom: 1px solid var(--border-color);
+    }
+    
+    .summary-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-2);
+    }
+    
+    .members-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .member-card {
+        break-inside: avoid;
+    }
+    
+    /* Hide interactive elements */
+    .nav-btn,
+    .btn-primary,
+    .btn-secondary,
+    .icon-btn,
+    .member-actions,
+    .progress-indicator {
+        display: none !important;
+    }
+}
+
+/* Container Queries Support */
+@supports (container-type: inline-size) {
+    .content-area {
+        container-type: inline-size;
+    }
+    
+    @container (max-width: 600px) {
+        .summary-cards {
+            grid-template-columns: 1fr;
+        }
+        
+        .form-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+    
+    @container (min-width: 800px) {
+        .summary-cards {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+}
